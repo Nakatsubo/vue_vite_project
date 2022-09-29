@@ -24,3 +24,9 @@ export default defineComponent({
   // }
 })
 </script>
+
+<style>
+.about {
+  z-index: 999999999999999999999999;
+}
+</style>
