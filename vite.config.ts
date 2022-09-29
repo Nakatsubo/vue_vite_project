@@ -1,20 +1,25 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+// import mpa from 'vite-plugin-mpa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    // mpa()
+  ],
 
-  // Path
   build: {
-    rollupOptions: { //ファイル出力設定
+    rollupOptions: {
+      //ファイル出力設定
       output: {
         assetFileNames: (assetInfo) => {
           let extType = assetInfo.name.split('.')[1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             extType = 'images';
           }
-	  //ビルド時のCSS名を明記してコントロールする
+	        //ビルド時のCSS名を明記してコントロールする
           if(extType === 'css') {
             return `assets/css/style.css`;
           }
